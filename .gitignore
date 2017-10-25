@@ -16,4 +16,10 @@ project/plugins/project/
 .scala_dependencies
 .worksheet
 
+# IDEA specific
 .idea/
+
+.DS_Store
+__pycache__/
+
+.storagespace
