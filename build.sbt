@@ -1,6 +1,6 @@
 name := "hydrogen"
 version := "0.3.0"
-scalaVersion := "2.12.3"
+scalaVersion := "2.12.4"
 organization := "com.hwaipy"
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1" % "test"
 libraryDependencies += "org.jscience" % "jscience" % "4.3.1"
