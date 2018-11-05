@@ -24,6 +24,7 @@ object BreezeUtil {
 
     def =~(m: Complex)(implicit error: Double = 0.000000001) = {
       def approx(a: Double, b: Double) = math.abs(a - b) <= (math.max(math.abs(a), math.abs(b)) * error)
+
       approx(c.re, m.re) && approx(c.im, m.im)
     }
 
@@ -62,6 +63,7 @@ object BreezeUtil {
         case pp => throw new IllegalArgumentException(s"$p can not be recognized as a valid Complex Vector.")
       }
     }
+
     val vcs = it.map(l => toCV(l).toArray).toArray
     val rowNumber = vcs.size
     val columnNumbers = vcs.map(v => v.size)
