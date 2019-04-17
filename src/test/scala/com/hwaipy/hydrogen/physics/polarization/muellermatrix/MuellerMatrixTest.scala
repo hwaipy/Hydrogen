@@ -34,6 +34,12 @@ class MuellerMatrixTest extends FunSuite with BeforeAndAfter with BeforeAndAfter
     assert(Polarization.H.transform(MuellerMatrix.merge(bbMatrix, new QuarterWavePlate(result(0)), new QuarterWavePlate(result(1)), new HalfWavePlate(result(2)))).getH == 1)
   }
 
+  test("Test M1Process with wp angles.") {
+    val bbMatrix = MuellerMatrix.merge(new HalfWavePlate(0.1001), new QuarterWavePlate(1), new QuarterWavePlate(0.0001))
+    val result = M1Process.calculate(bbMatrix)
+    assert(Polarization.H.transform(MuellerMatrix.merge(bbMatrix, new QuarterWavePlate(result(0)), new QuarterWavePlate(result(1)), new HalfWavePlate(result(2)))).getH == 1)
+  }
+
   test("Test M1Process with random.") {
     val random = new Random()
     (0 to 10000).foreach(_ => {

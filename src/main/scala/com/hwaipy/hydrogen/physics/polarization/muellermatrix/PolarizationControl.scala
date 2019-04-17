@@ -51,7 +51,7 @@ class M1Process(inputs: List[Double]) {
   val IDL = inputs(10)
   val IDR = inputs(11)
 
-  private def calculate = {
+  def calculate = {
     val sh = Array((IHH - IHV) / (IHH + IHV), (IHD - IHA) / (IHD + IHA), (IHR - IHL) / (IHR + IHL))
     val sd = Array((IDH - IDV) / (IDH + IDV), (IDD - IDA) / (IDD + IDA), (IDR - IDL) / (IDR + IDL))
     val sr = Array(sh(1) * sd(2) - sh(2) * sd(1), sh(2) * sd(0) - sh(0) * sd(2), sh(0) * sd(1) - sh(1) * sd(0))
