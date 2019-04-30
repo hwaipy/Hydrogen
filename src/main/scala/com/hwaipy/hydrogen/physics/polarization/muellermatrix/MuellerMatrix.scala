@@ -2,7 +2,9 @@ package com.hwaipy.hydrogen.physics.polarization.muellermatrix
 
 import Jama.Matrix
 
-class MuellerMatrix(val matrix: Matrix)
+class MuellerMatrix(val matrix: Matrix) {
+  def inverse = new MuellerMatrix(matrix.inverse())
+}
 
 object MuellerMatrix {
   def merge(matrixs: MuellerMatrix*) = new MuellerMatrix(matrixs.foldLeft(new Matrix(Array(Array(1, 0, 0, 0), Array(0, 1, 0, 0), Array(0, 0, 1, 0), Array(0, 0, 0, 1)))) { (a, b) => b.matrix.times(a) })
